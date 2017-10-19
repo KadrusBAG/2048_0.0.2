@@ -42,6 +42,7 @@ int main()
             break;
         }
         if(op=='j'){
+            int z=0;
             for(j=0; j<4; ++j){
                 for(i=3; i>=0; --i){
                     if(m[i][j]!=0){
@@ -51,6 +52,7 @@ int main()
                                     m[i][j]=m[i][j]+m[k][j];
                                     m[k][j]=0;
                                     s+=m[i][j];
+                                    z+=1;
                                 }
                                 break;
                             }
@@ -60,6 +62,7 @@ int main()
                                 m[i+1][j]=m[i][j];
                                 m[i][j]=0;
                                 i=i+1;
+                                z+=1;
                             }
                             else{break;}
                         }
@@ -67,8 +70,12 @@ int main()
                     }
                 }
             }
+            if(z==0){
+                cout<<"Enter another key"<<endl;
+            }
         }
         if(op=='k'){
+            int z=0;
             for(j=0; j<4; ++j){
                 for(i=0; i<4; ++i){
                     if(m[i][j]!=0){
@@ -78,6 +85,7 @@ int main()
                                     m[i][j]=m[i][j]+m[k][j];
                                     m[k][j]=0;
                                     s+=m[i][j];
+                                    z+=1;
                                 }
                                 break;
                             }
@@ -87,6 +95,7 @@ int main()
                                 m[i-1][j]=m[i][j];
                                 m[i][j]=0;
                                 i=i-1;
+                                z+=1;
                             }
                             else{break;}
                         }
@@ -94,8 +103,12 @@ int main()
                     }
                 }
             }
+            if(z==0){
+                cout<<"Enter another key"<<endl;
+            }
         }
         if(op=='h'){
+            int z=0;
             for(i=0; i<4; ++i){
                 for(j=0; j<4; ++j){
                     if(m[i][j]!=0){
@@ -105,6 +118,7 @@ int main()
                                     m[i][j]=m[i][j]+m[i][k];
                                     m[i][k]=0;
                                     s+=m[i][j];
+                                    z+=1;
                                 }
                                 break;
                             }
@@ -114,6 +128,7 @@ int main()
                                 m[i][j-1]=m[i][j];
                                 m[i][j]=0;
                                 j=j-1;
+                                z+=1;
                             }
                             else{break;}
                         }
@@ -121,8 +136,12 @@ int main()
                     }
                 }
             }
+            if(z==0){
+                cout<<"Enter another key"<<endl;
+            }
         }
         if(op=='l'){
+            int z=0;
             for(i=0; i<4; ++i){
                 for(j=3; j>=0; --j){
                     if(m[i][j]!=0){
@@ -132,6 +151,7 @@ int main()
                                     m[i][j]=m[i][j]+m[i][k];
                                     m[i][k]=0;
                                     s+=m[i][j];
+                                    z+=1;
                                 }
                                 break;
                             }
@@ -141,12 +161,16 @@ int main()
                                 m[i][j+1]=m[i][j];
                                 m[i][j]=0;
                                 j=j+1;
+                                z+=1;
                             }
                             else{break;}
                         }
                         j=k;
                     }
                 }
+            }
+            if(z==0){
+                cout<<"Enter another key"<<endl;
             }
         }
         for(i=0; i<4; ++i){
