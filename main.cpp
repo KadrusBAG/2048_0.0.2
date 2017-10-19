@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ctime>
 
 using namespace std;
 
@@ -24,12 +25,13 @@ int main()
         }
         cout<<endl;
     }
+    srand(time(NULL));
     int s=0;
-    while(1){
+    while(cin>>op){
         bool f=0;
-        for(i=0; i<4; ++i){
-            for(j=0; j<4; ++j){
-                if((m[i][j]==m[i+1][j])||(m[i][j]==m[i][j+1])||(m[i][j]==0)){
+        for(i=0; i<3; ++i){
+            for(j=0; j<3; ++j){
+                if(m[i][j]==m[i+1][j]||m[i][j]==m[i][j+1]||m[i][j]==0){
                     f=1;
                     break;
                 }
@@ -37,7 +39,6 @@ int main()
             if(f){break;}
         }
         if(!f){break;}
-        cin>>op;
         if(op=='q'){
             break;
         }
@@ -66,7 +67,7 @@ int main()
                             }
                             else{break;}
                         }
-                        i=k;
+                        i=k+1;
                     }
                 }
             }
@@ -99,7 +100,7 @@ int main()
                             }
                             else{break;}
                         }
-                        i=k;
+                        i=k-1;
                     }
                 }
             }
@@ -132,7 +133,7 @@ int main()
                             }
                             else{break;}
                         }
-                        j=k;
+                        j=k-1;
                     }
                 }
             }
@@ -165,12 +166,25 @@ int main()
                             }
                             else{break;}
                         }
-                        j=k;
+                        j=k+1;
                     }
                 }
             }
             if(z==0){
                 cout<<"Enter another key"<<endl;
+            }
+        }
+        while(1){
+            i=rand()%4;
+            j=rand()%4;
+            if(m[i][j]==0){
+                if(rand()%11<10){
+                    m[i][j]=2;
+                }
+                else{
+                    m[i][j]=4;
+                }
+                break;
             }
         }
         for(i=0; i<4; ++i){
@@ -185,6 +199,6 @@ int main()
             cout<<endl;
         }
     }
-    cout<<"game over; your score : "<<s<<endl;
+    cout<<"game over, your score : "<<s<<endl;
     return 0;
 }
