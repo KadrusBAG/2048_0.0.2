@@ -73,6 +73,7 @@ int main()
             }
             if(z==0){
                 cout<<"Enter another key"<<endl;
+                f=0;
             }
         }
         if(op=='k'){
@@ -106,6 +107,7 @@ int main()
             }
             if(z==0){
                 cout<<"Enter another key"<<endl;
+                f=0;
             }
         }
         if(op=='h'){
@@ -139,6 +141,7 @@ int main()
             }
             if(z==0){
                 cout<<"Enter another key"<<endl;
+                f=0;
             }
         }
         if(op=='l'){
@@ -172,31 +175,34 @@ int main()
             }
             if(z==0){
                 cout<<"Enter another key"<<endl;
+                f=0;
             }
         }
-        while(1){
-            i=rand()%4;
-            j=rand()%4;
-            if(m[i][j]==0){
-                if(rand()%11<10){
-                    m[i][j]=2;
-                }
-                else{
-                    m[i][j]=4;
-                }
-                break;
-            }
-        }
-        for(i=0; i<4; ++i){
-            for(j=0; j<4; ++j){
+        if(f){
+            while(1){
+                i=rand()%4;
+                j=rand()%4;
                 if(m[i][j]==0){
-                    cout<<"* ";
-                }
-                else{
-                    cout<<m[i][j]<<" ";
+                    if(rand()%11<10){
+                        m[i][j]=2;
+                    }
+                    else{
+                        m[i][j]=4;
+                    }
+                    break;
                 }
             }
-            cout<<endl;
+            for(i=0; i<4; ++i){
+                for(j=0; j<4; ++j){
+                    if(m[i][j]==0){
+                        cout<<"* ";
+                    }
+                    else{
+                        cout<<m[i][j]<<" ";
+                    }
+                }
+                cout<<endl;
+            }
         }
     }
     cout<<"game over, your score : "<<s<<endl;
